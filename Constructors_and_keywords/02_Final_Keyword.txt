@@ -1,0 +1,65 @@
+x----------------------FINAL KEYWORD---------------------------------------x
+
+  ->Does not allow the value of the variable to change.
+  ->i.e a variable decalred to final can nnot be reinitialised
+  ->grants immutability to the variable
+
+
+  int b=5;
+  b=6;
+     VALID✔
+
+  final int b=5;
+  b=6;
+    ERROR✖
+
+    ->ALSO ,final variables are to be initialised immediately after declaration
+    ->
+        the immutability granted by "final" keyword only rests true in case of primitive data types, and not reference
+        variables of the objects.
+        WHY?
+        because, reference variables refer to the memory address of the object,which will always be the same.
+        since the reference variable points to the address and not the actual object itself, object's properties can mutate,i.e can be changed
+
+
+
+x---------------------- GARBAGE COLLECTION & FINALISE KEYWORD---------------------------------------x
+
+Unlike in Cpp and python, we cannot destroy objects manually(destructors)
+->but using finalise keyword,we can dictate what to display when an object is being destroyed.
+
+pg:-
+      public class Program7 {
+    String name;
+
+    Program7(String name){
+        this.name=name;
+    }
+
+    protected void finalize() throws Throwable{
+        System.out.println("object destroyed paaji");
+    }
+
+    public static void main(String[] args) {
+        Program7 obj;
+
+        for(int i=0;i<10;i++){
+            obj=new Program7("Hungry");
+            System.gc();  //we arent ordering the JVM to destroy the object, but rather suggesting the JVM to do it.It is the decision of JVM to
+            //destroy objects or not
+        }
+    }
+    
+}
+
+
+o/p:-
+      object destroyed paaji
+      object destroyed paaji
+      object destroyed paaji
+      object destroyed paaji
+      object destroyed paaji
+      object destroyed paaji
+      object destroyed paaji
+      object destroyed paaji
+      object destroyed paaji

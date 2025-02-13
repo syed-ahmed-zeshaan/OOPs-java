@@ -1,0 +1,50 @@
+x----------------------WRAPPER CLASSES-------------------------------------x
+
+In JAVA, primitive  data structures arent stored as objects,rather they are stored in the stack
+
+    ex:-int a=5;
+        float b=25;
+
+        |          |    
+        |          |                
+        |  b=25    |                
+        |_________ |
+        |  a=5     |             
+        -----------               
+         STACK       
+
+
+    
+
+
+    Student s=new Student();
+
+
+
+
+        |   |                   /\
+        |   |                  /  \
+        |   |                 /    \
+        |s--|----------------/->obj \       obj is of the type Student
+        |   |               /        \
+        -----              /          \
+       STACK                   HEAP
+
+
+WHAT IF YOU WANT TO CREATE AN OBJECT FOR PRIMITIVE DATA TYPES?
+            You use wrapper classes
+
+            int a=5;->Integer a=5;(or)Integer a=new Integer('5');
+
+            char ch='a'->Charecter ch='a';
+
+                                 / \
+        |   |                   /   \
+        |   |                  /     \
+        |   |                 /       \
+        |a -|----------------/->obj'5' \    
+        |ch-|---------------/->obj'a'   \
+        -----              /             \
+       STACK                   HEAP
+
+              

@@ -1,0 +1,175 @@
+
+
+x---------------------------------------------------CONSTRUCTORS------------------------------------------------------------x
+
+A special function/method that is used to initialise attributes of that class is called a constructor
+
+            Student s=new Student();
+                          ---------
+                              |
+                              v
+                          constructor
+->it initialises attributes at the time of creation of objects
+->constructors are of 3 types
+    1.Default
+    2.Non parameterised
+    3.parameterised
+
+DEFAULT CONSTRUCTORS
+
+            ->called automatically when a objecct is created
+            ->implicit constructor
+
+            ex:-program to demonstrate Default CONSTRUCTORS
+
+             public class Program3{
+                    public static void main(String[] args){
+
+                        class Student{
+                            int rno;
+                            String name;
+                            float marks;
+                            
+                            void display(){
+                                System.out.println("Rollno="+this.rno+"\nName="+ this.name+"\nmarks="+this.marks);
+
+                            }
+                        }
+
+
+                        Student s=new Student();
+                        s.display();
+                        //the compiler itself initialises the attributes to the default values of its datatype using implicit constructor
+                    }
+                    
+                }
+
+         ------------
+NON PARAMETERISED CONSTRUCTOR
+
+        ->constructor which is manually written as a method inside the class,WITH NO ARGUMENTS.
+
+        syntax:-
+                class Classname{
+
+                    Classname(){
+
+                    }
+                }
+
+         ex:-program to demonstrate parameterised constructor
+
+        public class Program4 {
+                public static void main(String[] args){
+
+                    class Student{
+                        int rno;
+                        String name;
+                        float marks;
+                        
+                        Student(){
+                            this.rno=13;
+                            this.name="Zee";
+                            this.marks=56;
+                        }
+                        //this method will be initialised as soon as the object is created and the values to the attributes will be allocated
+
+                        void display(){
+                            System.out.println("Rollno="+this.rno+"\nName="+ this.name+"\nmarks="+this.marks);
+
+                        }
+                    }
+
+
+                    Student s=new Student();
+                    s.display();
+                    //the compiler itself initialises the attributes to the default values of its datatype using implicit constructor
+                }
+  ------------
+NON PARAMETERISED CONSTRUCTOR
+
+        ->constructor which is manually written as a method inside the class,WITH ARGUMENTS.
+
+        syntax:-
+                class Classname{
+
+                    Classname(arg1,arg2..){}
+
+                    }
+                }
+
+         ex:-program to demonstrate  nonparameterised constructor
+
+                public class Program5 {
+            public static void main(String[] args){
+
+                class Student{
+                    int rno;
+                    String name;
+                    float marks;
+                    
+                    Student(int rno,String name,float marks){
+                        this.rno=rno;
+                        this.name=name;
+                        this.marks=marks;
+                                //------
+                                //these "marks" are from the arguments
+
+                    }
+                    //this method will be initialised as soon as the object is created and the values to the attributes will be allocated
+
+                    void display(){
+                        System.out.println("Rollno="+this.rno+"\nName="+ this.name+"\nmarks="+this.marks);
+
+                    }
+                }
+
+
+                Student s=new Student(65,"idk",65);
+                s.display();
+               
+
+
+        }}
+
+CONSTRUCTOR OVERLOADING
+
+       -> Similar to method overloading, but for constructors
+       ->constructor of the type will be initialised whos signatures match
+
+        class Student{
+            int rno;
+            String name;
+            float marks;
+            
+            Student(){
+                this.rno=13;
+                this.name="Zee";
+                this.marks=56;
+            }
+            
+            Student(int rno,String name,float marks){
+                this.rno=rno;
+                this.name=name;
+                this.marks=marks;
+
+            }
+            void display(){
+                System.out.println("Rollno="+this.rno+"\nName="+ this.name+"\nmarks="+this.marks);
+
+            }
+        }
+
+
+        Student s=new Student();//calls 1st constructor
+        s.display();
+
+        Student s1=new Student(66,"idfc",66); //calls 2nd constructor
+        s1.display();
+       
+
+
+                        
+
+                                                
+

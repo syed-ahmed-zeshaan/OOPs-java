@@ -1,0 +1,42 @@
+x---------------------------------------------------STATIC KEYWORD---------------------------------------------------------x
+
+When a member of a class is declared to static,it can be accessed before any object of th said class is created.
+->Both attributes and functions can be declared to static
+->Ex:-Main function
+        in every program psvm is the entry point of the program,which is declared inside a class.we need to accessed
+        psvm before any object of the parent class is created for the program to execute,hence we use the static KEYWORD
+
+->Static keyword belongs to the class and not the object
+->static members can access only static members
+->static members can not access non static members
+->A non static member belongs to the object.and a static member referencing to a non static member before the object is created makes no sense.
+->non static members can access both static and non static members
+->static members hence cant access "this" keyword
+->static methods can be directly accessed by class name
+->ONLY NESTED CLASSES CAN BE STATIC
+ex:-
+        public class Program8 {
+            static int a=4;
+            static int b;
+            static void random(int x){
+                System.out.println("a="+a);
+                System.out.println("b="+b);
+                System.out.println("x="+x);
+            }
+            static{
+                System.out.println("Static block initialised");
+                b=a*4;
+            }
+            public static void main(String[] args) {
+                random(42);
+            }
+            
+        }
+o/p:-Static block initialised
+a=4
+b=16
+x=42
+
+understanding the program
+->Static statements are run first as soon as the class is loaded.So first a is set to 4,then static block initialises b to a*4.Then main
+does its thing

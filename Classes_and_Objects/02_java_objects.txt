@@ -1,0 +1,270 @@
+
+
+                            JAVA OBJECTS
+
+Let us just design a template of a car.
+
+A car has the following  
+                       
+                    _________
+                    |Engine  |
+                    |Seats   |
+                    |Price   |
+                    ----------
+                       CAR 
+                       
+These are few of the real cars
+
+_________          ______________           ____________
+|Electric|         |Turbo Diesel|           |V8 Engine  |
+|4 seats |         |2 seats     |           |2 seats    |
+|$100,000|         |$400,000    |           |$1 million |
+----------         --------------           --------------
+   TESLA               AUDI                     FERRARI
+
+   ->Tesla, Audi, Ferrari all have used the template of the car to create their own cars
+   ->Each car is differernt from others
+   ->The template of the car physically doesnt exist, but the cars do exist
+   ->Here, the template is the class,where as the car is the Object
+
+1.DEFINITION
+
+   A class is a template of the object,where as the Object is the instance of the class.[instance-single occurance]
+    ->An object occupies space in the memory
+
+
+
+
+2.HOW TO CREATE AN OBJECT?
+
+    Use the following Syntax:-
+
+            ClassName referenceVariable=new ClassName();
+
+    ex:-For the case Create a data type that stores all roll number,name and marks in one place
+
+                  class Student{
+                        
+                        int rollno;
+                        String name;
+                        float marks;
+                }
+
+
+                    Student student=new Student();
+
+                    //detailed program in the next page, mere representation only
+                       class Program1{       
+                        public static void main(String[] args){
+                                 /*
+                                inner classes are generally declared inside psvm.If you want to declare it outside psvm,
+                                use "static" keyword.
+                                static class Student{...}
+                                */
+                        class Student{
+                                
+                                int rno;
+                                String name;
+                                float marks;
+
+                                void display(){
+                                System.out.println("Rollno="+this.rno+"\nName="+ this.name+"\nmarks="+this.marks);
+
+                                /*
+                                * THIS KEYWORD:-
+                                * Used to refer the object from within the class
+                                * Analogue to "self" keyword in python
+                                */
+                                }
+                        }
+
+
+                        Student s=new Student();
+                                //creating an object of the class "Student"
+                        s.rno=13;
+                        s.name="Zeshaan";
+                        s.marks=55;
+                        s.display();
+                        }
+                }
+
+                output:-
+                        Rollno=13
+                        Name=Zeshaan
+                        marks=55.0
+
+
+
+
+
+
+3.EXPLAINATION OF " ClassName referenceVariable=new ClassName();"
+
+
+
+        ->Left hand part,i.e, ""ClassName referenceVariable" is stored in the stack
+        ->Right hand part , i.e new ClassName(); has to do with the object
+
+        Flow of execution:-
+
+        1.The "new" keyword allocates memory for the object in the heap memory
+        2.JVM creates an object of the aforementioned class
+        3. "ClassName()" is a constructor which instantiates the objects(initialisting the memebers of the class"
+        4.The "new " keyword generates a reference 
+        5.This reference is stored  in the "referenceVariable" which is of the type "className"
+
+
+        |                   |                   /\
+        |                   |                  /  \
+        |                   |                 /    \
+        |referenceVariable--|----------------/->obj \       obj is of the type ClassName
+        |                   |               /        \
+        --------------------               /          \
+                 STACK                          HEAP
+
+
+              
+
+
+4.TYPES OF ATTRIBUTES/VARIABLES
+
+
+                1.CLASS ATTRIBUTES
+
+                         -> Variables shared by all instances/objects of the clas are called class attributes
+                         ->Unique to the class
+                         ->declared to static
+                         ->Only one copy of class variables are shared by all objects(class level)
+                         ->Stores data common to all objects
+                         ->Stored in static memory, allocated once when the class is loaded.
+                         ->Can be accessed using
+
+                                  1.ClassName.attributeName 
+                                  or
+                                  2.object.attributeName
+
+
+                           ex:-PROGRAM TO DEMONSTRATE INSTANCE VARIABLES
+
+                          public class Program2 {
+                                public static void main(String[] args){
+
+                                        class Student{
+                                        int rno=13;
+                                        String name="Zeshaan1";
+                                        float marks=55;
+                                        /* initialising these variables to a value.Each All Objects of the class will share these variablesin common at one place*/
+                                        
+
+                                        void display(){
+                                                System.out.println("Rollno="+this.rno+"\nName="+ this.name+"\nmarks="+this.marks);
+                                                System.out.println("-------------------------");
+
+                                        }
+                                        }
+
+                                Student[] s=new Student[5];//creating an array of objects of type student.these are mere references to the objects.we need to create objects
+
+                                for (int i = 0; i < 5; i++) {
+                                        s[i]=new Student();//creating objects
+                                }
+
+                                for (int i = 0; i < 5; i++) {
+                                        System.out.println(i);
+                                        s[i].display();//didnt initialise object to any value, yet all objects display same results
+                                }
+
+                                s[1].name="Samay";
+                                s[1].rno=7;
+                                s[1].marks=0;
+                                        //yes,these variables can be modified by an object, but the changes will be limited only to that object
+                                s[1].display();
+                                
+
+
+                                        
+                                }
+
+                                }
+
+                                o/p:-   0
+                                        Rollno=13
+                                        Name=Zeshaan1
+                                        marks=55.0
+                                        -------------------------
+                                        1
+                                        Rollno=13
+                                        Name=Zeshaan1
+                                        marks=55.0
+                                        -------------------------
+                                        2
+                                        Rollno=13
+                                        Name=Zeshaan1
+                                        marks=55.0
+                                        -------------------------
+                                        3
+                                        Rollno=13
+                                        Name=Zeshaan1
+                                        marks=55.0
+                                        -------------------------
+                                        4
+                                        Rollno=13
+                                        Name=Zeshaan1
+                                        marks=55.0
+                                        -------------------------
+                                        Rollno=7
+                                        Name=Samay
+                                        marks=0.0
+                                        -------------------------
+
+
+                ---------------------------
+                2.INSTANCE VARIABLES
+                        ->Variables that belong to a specific object instance are called as instance variables
+                        ->Unique to the object
+                        ->Each object has its own copy of instance variables
+                        ->Stores data specific to object's state
+                        ->Can be accessed using
+                                  object.attributeName
+                        ->ClassName.attributeName  will give an error
+                                  
+                      ex:-PROGRAM TO DEMONSTRATE INSTANCE VARIABLES
+
+                class Program1{       
+                        public static void main(String[] args){
+
+                        class Student{
+
+                                int rno;
+                                String name;
+                                float marks;
+
+                                /*not initialising these variables to any value.Each unique Object is free to initialise 
+                                its own set of unique variables*/
+                
+                                void display(){
+                                System.out.println("Rollno="+this.rno+"\nName="+ this.name+"\nmarks="+this.marks);
+
+                                /*
+                                * THIS KEYWORD:-
+                                * Used to refer the object from within the class
+                                * Analogue to "self" keyword in python
+                                */
+                                }
+                        }
+
+
+                        Student s=new Student();
+                                //creating an object of the class "Student"
+                        s.rno=13;
+                        s.name="Zeshaan";
+                        s.marks=55;
+                                //variables initialsed are unique to the object named "s" not the class "Student",hence these are instance variables.
+                        s.display();
+                        }
+                }
+
+                output:-
+                        Rollno=13
+                        Name=Zeshaan
+                        marks=55.0

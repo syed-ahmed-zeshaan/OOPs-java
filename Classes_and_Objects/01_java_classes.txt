@@ -1,0 +1,108 @@
+
+x-------------------------------WHAT IS OOPS?------------------------------------------------------x
+
+
+
+OOPs is a programming paradigm that visualises problems as real world entities/problems
+   
+    Purpose:-1.visualisation as in the definition
+             2.reusability
+             3.Data Security
+             4.Data Sharing
+             5.Data Binding
+             6.Impliment a bottom-to-top approach
+
+PRINCIPLES OF OOPs
+
+             1.Class
+             2.Object
+             3.Inheritance
+             4.Polymorphism
+             5.Data Abstraction
+             6.Encapsulation
+
+
+
+ x--------------------------------- JAVA CLASS---------------------------------------------------------
+
+1.Defintion:
+
+        logical respresentation of a real world entity is called as a "Class"
+        (or)
+        class is a named group of properties and functions
+
+2.Properties:-
+
+        ->A class has a name, properties/data and methods combined as a single block of code.
+        ->Class is a user defined datatype.
+        ->Class wont execute by itself.
+        ->class does not occupy any memory on its own
+
+3.Use Case:-
+
+        Imagine the following,
+        1.If you are asked to create a datatype that stores roll number of student
+                int rno;
+        2.If you are asked to create a datatype that stores name of student
+                String name;
+        3.If you are asked to create a datatype that stores marks of student
+                float marks;
+        
+        Now create a data type that stores all roll number,name and marks in one place.How do you do that?
+        You use "class"
+
+4.Syntax:-
+
+        class ClassName{
+                //statement(s);
+        }
+
+5.Example:-
+
+        Writing a class for the stated scenario-
+                Create a data type that stores all roll number,name and marks in one place
+
+                class Student{
+
+                        int rollno;
+                        String name;
+                        float marks;
+                }
+
+6.STRUCTURE OF A CLASS:
+
+                A class contains
+
+                        1.Attributes:
+                                 -> Properties of the entity is called as attributes
+                                   ->stored as variables
+                        2.Methods:
+                                 -> Functionality of the entity is called a method
+                                  -> stored a function inside class
+
+                ex:-
+
+                          class ClassName{
+
+                    dataType-1 attribute-1;
+                    dataType-2 attribute-2
+                            .
+                            .
+                            .
+                    dataType-N attribute-N;
+
+                    returnType-1 method-1(){
+
+                    }
+                    returnType-2 method-2(){
+                        
+                    }
+                            .
+                            .
+                            .
+                    returnType-N method-N(){
+                        
+                    }
+
+
+                }

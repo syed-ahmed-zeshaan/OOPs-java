@@ -1,0 +1,154 @@
+
+x--------------------------------------------TYPES OF INHERITANCE IN JAVA---------------------------------------------------------x
+
+ 1. SINGLE INHERITANCE
+
+                In Single Inheritance,  one class inherits another single class.
+
+
+                                    Parent
+                                      |
+                                    Child
+
+                Example:
+                
+                            class Parent {
+                                void show() {
+                                    System.out.println("Parent class");
+                                }
+                            }
+                            class Child extends Parent {
+                                void display() {
+                                    System.out.println("Child class");
+                                }
+                            }
+                            public class Test {
+                                public static void main(String[] args) {
+                                    Child obj = new Child();
+                                    obj.show(); // Accessing Parent class method
+                                    obj.display();
+                                }
+                            }
+    
+
+ 2.MULTI LEVEL INHERITANCE
+                In Multilevel Inheritance, one class inherits another class,which itself inherits another class.
+  
+                                Grandparent
+                                    |
+                                  Parent
+                                    |
+                                  Child
+
+
+                Example:
+                        class Grandparent {
+                            void method1() {
+                                System.out.println("Grandparent class");
+                            }
+                        }
+                        class Parent extends Grandparent {
+                            void method2() {
+                                System.out.println("Parent class");
+                            }
+                        }
+                        class Child extends Parent {
+                            void method3() {
+                                System.out.println("Child class");
+                            }
+                        }
+                        public class Test {
+                            public static void main(String[] args) {
+                                Child obj = new Child();
+                                obj.method1(); // Grandparent class method
+                                obj.method2(); // Parent class method
+                                obj.method3(); // Child class method
+                            }
+                        }
+
+
+ 3.HERIARCHIAL INHERITANCE
+                In Hierarchical Inheritance, multiple subclasses inherit from a single superclass.
+                                    
+                                    Parent
+                                    /      \
+                                Child1   Child2.........Child-N
+
+                Example:
+                    
+                        class Parent {
+                            void show() {
+                                System.out.println("Parent class");
+                            }
+                        }
+                        class Child1 extends Parent {
+                            void display1() {
+                                System.out.println("Child1 class");
+                            }
+                        }
+                        class Child2 extends Parent {
+                            void display2() {
+                                System.out.println("Child2 class");
+                            }
+                        }
+                        public class Test {
+                            public static void main(String[] args) {
+                                Child1 obj1 = new Child1();
+                                obj1.show();
+                                obj1.display1();
+
+                                Child2 obj2 = new Child2();
+                                obj2.show();
+                                obj2.display2();
+                            }
+                        }
+                
+
+4.MULTIPLE INHERITANCE
+            Java DOESNT SUPPORT multiple inheritance with classes.
+             Example:
+
+                                Class A      Class B
+                                   \           /
+                                    \         /
+                                      Class C
+
+            NOTE:-Imagine a class C has 2 super classes, A and B, and both have a variable "n".If an object of type C is created
+                    and "n" is accessed then....
+
+                                Class A      Class B
+                                 {n=5}        {n=10}
+                                   \           /
+                                    \         /
+                                      Class C
+                                      {
+                                        C obj=new C();
+                                        System.out.print(obj.n);
+                                      }
+                                    
+             ...What will the answer be?-5 or 10?
+                We dont know
+                -> This is called ambiguity or the Diamond Problem
+                ->Java avoids direct multiple inheritance with classes to prevent ambiguity
+                                            
+
+
+
+
+               
+              
+
+5.HYBRID INHERITANCE
+
+   Since Java does not support multiple inheritance ,even Hybrid inheritance isnt supported
+            
+               Class A----------- Class B
+                  |                  |
+                  |                  |
+               Class C----------- Class D
+            
+                    (in a way it is Multiple inheritance)
+
+
+ Multiple and Hybrid Inheritance are implemented using interfaces.
+

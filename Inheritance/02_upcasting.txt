@@ -1,0 +1,64 @@
+
+    For the follwing case
+                                        Box[l,b,h]
+                                             |
+                                        boxWeight[w]
+
+    The following are a few valid syntax
+
+               1. Box box=new Box();✔
+
+               2. BoxWeight box=new BoxWeight();✔
+
+IMPORTANT****  3. Box box=new BoxWeight();✔
+
+                    Even this is valid.
+                    Question:?
+                            Why is this valid'
+                    Answer:
+                                                refered class
+                                            -------------
+                                 Box box=new BoxWeight();
+                                 --------
+                                    |
+                                 referencing class
+
+                            ->In this case,the reference variable is of the type of Box(Super class) and the object created/constructor called 
+                                 is of the type BoxWeight(Subclass).
+                                 *All the memebrs of the "referencing class" must be initialised for a valid object creation,which in this
+                                 case is happening as the sub class(box weight) calls the constructor of super class(box)
+                                 !Hence it is a valid syntaxx
+
+                                 This is called UPCASTING.
+
+                            ->Hence all members of super class can be accessed
+
+                                    syso(box.l)✔
+                                    syso(box.b)✔
+                                    syso(box.h)✔
+
+                                    syso(box.w)❌,ERROR
+
+                                    WHY>?
+                                    "What members can be accessed is dependent on the reference variable, and not the type of
+                                    object created"
+
+                                    Since the reference variable is of the Super class it cant access the members of the subclass.
+                
+                
+                4. BoxWeight box=new Box();❌,ERROR
+                            WHY?
+                                Here the referencing class is of the type of subclass,and the object is of the type super class.
+                                Not all memebrs of the referencing class which in this case is the Sub class are initialised as the
+                                object that we are trying to create is of the super class, and super class doesnt have access to the members 
+                                of the sub class
+                                hence this is invalid declaration
+
+
+SUMMARY:-
+
+        1.in java you can have a super class reference and a subclass object(Upcasting)
+        2.in java you cant have a sub class reference and a super class object(Invalid reference)
+
+
+                                    

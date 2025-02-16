@@ -1,0 +1,160 @@
+x---------------------------------------------------INHERITANCE---------------------------------------------------------x
+
+                            PARENTS
+                     [money,assets,land,etc]
+                                |
+                                |
+                                |
+                                v
+                            CHILD
+
+Child has access to all the properties of the parents.
+Similarly in OOPs,
+One class can have acccess to the properties of another class.This concept is called Inheritance.
+
+                    Parent/Super class
+                    [properties]
+                         |
+                         |
+                         |
+                         v 
+                    Child/Sub class
+
+Super/Parent Class:Class whos properties are being inherited
+Sub/Child Class:Class who is inheriting the properties
+
+NOTE:-
+    1.The Sub Class has access to all the members of the parent class.
+    2.The Super class has no access to any member of the subclass.Infact the super class doesnot even know if it is being inherited.
+    3.Syntax:-
+
+            class SubClass extends SuperClass{...}
+
+    WAP to create a box[l,b,h]
+
+                public class Box {
+                            int l,b,h;
+                            
+                            Box(int l,int b,int h){
+                                this.l=l;
+                                this.b=b;
+                                this.h=h;
+                            }
+
+                            Box(int a){
+                                this(a,a,a);
+                            }
+
+                            Box(){
+                                this(-1,-1,-1);
+                            }
+
+                            Box(Box old){
+                                this(old.l,old.b,old.h);
+                            }
+
+                            void display(){
+                                System.out.println(this.l+" "+this.b+" "+this.h);
+                            }
+
+                            public static void main(String[] args) {
+                                Box box1=new Box(1,5,3);
+                                box1.display();
+                                Box box2=new Box(box1);
+                                box2.display();
+                            }
+                        }
+
+    WAP to create a boxWeight[l,b,h,w]=>
+    
+                                         Box[l,b,h]
+                                             |
+                                        boxWeight[w]
+
+                  public class BoxWeight extends Box {
+
+                            int w;
+
+                            BoxWeight(int l,int b,int h,int w){
+                            super(l,b,h);
+                            this.w=w;
+                            }
+
+                            void display(){
+                                System.out.println(this.l+" "+this.b+" "+this.h+" "+this.w);
+                            }
+
+                            public static void main(String[] args) {
+                                BoxWeight box3=new BoxWeight(5,6,8,9);
+                                box3.display();
+                            }
+                            
+                        }
+
+
+        --------------------------
+             "SUPER" KEYWORD
+
+->iS used to refer the parent class from the child class.
+->It has 2 use cases.
+
+        1.To call a constructor of the super class;
+
+                  BoxWeight(int l,int b,int h,int w){
+                            super(l,b,h);
+                            this.w=w;
+                            }
+
+        2.To refer to a member of the super class
+
+                     BoxWeight(int l,int b,int h,int w){
+                            super.l=l;
+                            super.b=b;
+                            super.h=h;
+                            this.w=w;
+                            }
+
+-> Imagine that C inherits B, and B inherits A, and Super is called in B and C,then... 
+                        A 
+                        |
+                        B super=>calls the constructor of A
+                        |
+                        C super=>calls the constructor of B
+
+        Question:?
+                What if the constructor is called in A class?
+        Answer:
+                Every class in Java inherits a special class called as the "Object" Class by default
+                i.e Object class is by default the super class of any other class
+
+                    Object Class-----
+                        |           |
+                        v           |
+                    Super Class     |
+                        | ----------|
+                        | | 
+                        v v         
+                    Sub Class
+
+
+        Question:?
+                Difference between the this and super keyword.
+        Answer:
+                                         Box[l,b,h,w]  Note:The box class also has the 'w' variable
+                                             |
+                                        boxWeight[w]
+
+
+                boxWeight(){
+                    this.w=1;->here 'this' refers to w of the sub class 
+                    super.w=1;->here 'super' refers to w of the super class 
+                }
+
+                this->refers to the subclass(object of this class itself)
+                super->refers to the superclass(object of this super class)
+
+        
+
+
+
+                                    

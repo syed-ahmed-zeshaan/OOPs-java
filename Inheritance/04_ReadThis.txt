@@ -1,0 +1,12 @@
+
+
+
+    Before writng programs for inheritance,you must understand Rules for Multiple Classes in a Single File:-
+
+        1.Only One Public Class: If a file contains multiple classes, only one class can be public, 
+        and the file name must match that class.
+
+        2.Non-Public Classes: Other classes in the file should not be declared as public but it can be
+         default, private, or protected.
+
+        3.Executing the Program: The public class should contain the main() method, as that’s where execution starts.

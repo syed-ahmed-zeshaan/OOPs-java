@@ -1,0 +1,24 @@
+x---------------------------------------------------POLYMORPHISM---------------------------------------------------------x
+
+Poly-Morphism
+Poly means Many,Morphism means ways to represent.
+
+
+A man can be the following as per the situation
+
+        |->Software Development Engineer
+        |->Driver of his own car 
+        |->Husband
+MAN-----|->Father
+        |->Son 
+        |->GrandSon
+
+A man can perform/behave differently as per the situation.
+
+Similarly,ability of an entity(an object,or a method or a function) to take up multiple roles/behaviours is called as polymorphism.
+
+TYPES OF POLYMORPHISM
+                1.Static or complie time polymorphism
+                2.Dynamic or Run time polymorphism
+
+NOTE:Polymorphism is applies only to methods,not to attributes

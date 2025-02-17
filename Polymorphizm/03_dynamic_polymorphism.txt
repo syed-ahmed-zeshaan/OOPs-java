@@ -1,0 +1,109 @@
+x--------------------------------------------DYNAMIC POLYMORPHISM---------------------------------------------------------x
+
+
+
+What method to be executed is decided at run time instead of complie time.Hence it is also called as Runtime polymorphism.
+
+HOW TO ACHIEVE RUN TIME POLYMORPHISM
+        
+        two necessary conditions
+        
+        1.Class Heirarchy and Upcasting,
+            
+            i,e
+            SuperClass referenceVariable=new SubClassObject();
+
+        2. Method Overriding:-
+        two methods with exactly same name and signatures must be present in both Sub class and super class.
+
+                                Super class
+                             [method1(arg1,arg2)]
+                                    |
+                                    |
+                                    |
+                                    v 
+                                 Sub class
+                             [method1(arg1,arg2)]
+
+        Then if that method is called,then the method from the subclass executes instead of the method from super class
+        i.e the method from the subclass is said to override the method from super class.
+
+
+
+        
+
+
+        ex:-
+                class Shape{
+                    void area(){
+                        System.out.println("Area of a shape is space it takes");
+                    }
+                }
+
+                class Circle extends Shape{
+                    void area(){
+                        System.out.println("pi*r*r");
+                    }
+                }
+
+                public class OverRiding {
+                    public static void main(String[] args) {
+                        
+                        Shape obj=new Circle();
+
+                        obj.area();
+
+                    }
+                }
+
+            literally it is
+
+            
+                                Shape                 This is called the original Method
+                             [void area();]
+                                    |
+                                    |
+                                    |
+                                    v 
+                                 Circle                 This is called as the Overridden Method
+                            [void area();]
+
+
+
+
+
+
+                output:-
+                        pi*r*r,i.e the method of circle(sub class) is called.
+
+MECHANISM:-"DYNAMIC DISPATCH METHOD"
+
+        BEHIND THE SCENES:-
+
+            1.To note,
+                    referenceVariable is of Super class(Shape)
+                    but it refers to the object of SubClass(circle)
+
+            2.Java uses a data Struture called as  "Vitual Method Table" or VMT which stores a pointer to all the 
+            overridden methods in all the sublasses
+            
+            3.When an Object of the subclass is created,JAVA generates a VMT for the Overridden method
+
+            4.Now instead of looking at the type of referenceVariable,Java looks at the method in VMT of the actual object type
+            and executes it
+
+            ->all of this happens at run time
+
+Simply,Alternatively,
+
+    What members can be accessed is determined by referenceVariable which in this case is Super class
+
+    Which method to be called depends on the type of the object created
+
+    here the object isof subclass hence method to be called is also of the sublass
+
+note:-mathods declared to final cannot be overridden
+
+
+
+

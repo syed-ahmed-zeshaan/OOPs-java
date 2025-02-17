@@ -1,0 +1,32 @@
+x--------------------------------------------STATIC-POLYMORPHISM---------------------------------------------------------x
+
+Ability of a method to behave differently based on the nature of parameters passed to it is called static polymorphism.
+->All of this happens at Compile time,hence the name Compile time polymorphism
+
+HOW TO ACHIEVE IT?
+    Using METHOD OVERLOADING:-
+            if two methods in a class have same name but different signatures(number of paramters,type of paramters,return type),java simply
+            executes the version of method whose paramters match with the arguments passed in the function call.
+
+            ex:-
+
+                    public class OverLoading {
+                            static int sum(int a,int b){
+                                return a+b;
+                            }
+                            static int sum(int a,int b,int c){
+                                return a+b+c;
+                            }
+
+                            public static void main(String[] args) {
+                                System.out.println(sum(1,2,3));//2nd method is called
+                                System.out.println(sum(1,2));//1st method is called
+                            }
+                    }
+
+            BEHIND THE SCENE:-
+                1.The Method sum is overloaded with multiple arguments
+                2.Each over loaded method is a seperate method in the complied code 
+                3.Complier selects the method to be used based on actual arguments.
+                4.This happens at compile time
+                5.No decision is taken in run time

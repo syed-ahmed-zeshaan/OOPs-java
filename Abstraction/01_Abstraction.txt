@@ -1,0 +1,17 @@
+x---------------------------------------------------ABSTRACTION---------------------------------------------------------x
+
+Process of hiding sensitive details and only showing the required details to the user is called as ABSTRACTION
+
+ex:-In order to start a casr, you only need to press on the ognition but dont need to know how the internal combustion
+  engine works
+
+Similarly,Abstraction is a concept that helps us to define what a class does, intead of how to does.(Like a car switching on,
+insteading of knowing how)
+
+Focus on "What" instead of "how"
+
+Abstraction of classes could be implemented by the following:-
+        1.Abstract classes
+        2.Interfaces
+
+

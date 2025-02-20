@@ -1,0 +1,85 @@
+x---------------------------------------------------ABSTRACT CLASSES---------------------------------------------------------x
+
+->Abstract class is a super class that only defines a generalised form, which will be inherited by >=1 subclasses
+->The subclasses are responsible to fill in the body/implimentation of the Super/Abstract Class, by using method overriding
+
+                                        Animal{
+                                            sound();                                    Super Class with No body
+                                        }
+                                            |
+                                            |
+     |------------------------------------------------------------------------------------|                                       
+     |                                                                                    |
+     |                                                                                    |
+   Dog{                                                                                 Cat{
+    @Override                                                                             @Override          
+    sound(){...}                                                                          sound(){...}          SubClasses that fill the body of
+   }                                                                                       }                    Super Class by Method Overriding
+
+
+->Such classes(Abstract Classes) only determine the nature of the methods to be implemented,i.e the return type that subclasses can implememt
+-> purpose of an abstract class is to serve as a base class that other classes inherit/extend and implement its abstract methods.
+->You need a way to ensure that the method in super class gets overridden.Hence we use the 'abstract' keyword 
+                syntax:
+                            abstract returnType methodName(arguments);
+
+                            These metods are called as 'subclass responsibility' as they have no implementation
+                            specified in super class hence overriding becomes necessarry
+
+NOTE:-
+
+        1.Any class that contains even one abstarct method must be declared to abstarct
+
+            abstarct class ClassName{
+                        abstarct method();
+            }
+
+        2.It is not necessarry for an abstarct class to have only abstarct methods.Even normal general methods can also be 
+        declared.But their implimentation must be given.These are called as concrete methods.
+
+        3.Objects of the abstarct class can not be created because your abstarct class has no implimentation specified
+        in it, so naturally JVM will take it as an error
+
+                AbstarctClassName referenceVariable=new AbstarctClassName();    ❌Error
+
+        4.Even though you cannot create an object of an abstract class, you can still create a constructor of the class,and it will execute
+        when a subclass object is created.
+          This is because Java enforces constructor chaining, where the superclass constructor  (including abstract class constructors) 
+          is always executed before the subclass constructor.
+
+        5. static concrete methods can be created in an abstract class because static methods belong to the class itself, not to instances
+         of the class. Since an abstract class is still a class (even though it cannot be instantiated), it can have static methods
+          just like any other class.
+          But these methods can not be overridden by the subclass.
+
+        6.static abstarct methods can not be created because static methods can not be overridden.
+
+        7.Abstract classes cant be declared to final, because final prevents inheritance of a class.It defeats the entire purpose of an
+        abstarctclass, which is to serve as a base class to the classes which inherit it.
+
+        ex:-
+
+        abstract class Animal{
+                abstract void sound();
+            }
+
+            class Dog extends Animal{
+                void sound(){
+                    System.out.println("Dog Barks");
+                }
+            }
+
+            class Cat extends Animal{
+                void sound(){
+                    System.out.println("Cat Meows");
+                }
+            }
+
+            public class AbstractClassesDemo {
+            public static void main(String[] args) {
+                Animal obj=new Dog();
+                obj.sound();
+            }
+            }
+
+            op:-Dog Barks

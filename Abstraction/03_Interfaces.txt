@@ -1,0 +1,146 @@
+x---------------------------------------------------INTERFACES---------------------------------------------------------x
+
+
+INTERFACE is a special type of reference that defines a set of method signatures that a class inheriting it must impliment.
+
+NOTE:************INTERFACE is NOT A CLASS., it is a different entity
+
+Conceptually, Interface is more closer to an abstarct class, but not a class
+
+KEY FEATURES OF INTERFACES:
+
+            1.All methods inside an interface are by default declared to public and abstract.
+            
+            2.All attributes inisde and interface are by deafult declared to pulbic , static and final
+
+            3.Since Java 8, interfaces can have default methods and static methods, which are concrete methods with implementations.
+
+            4.Interfaces cannot have instance variables and constructors
+
+            5.a single class can inherit multiple interfaces, hence it supports multiple inheritance.
+
+for a class to inherit a interface use 'impliments' keyword.
+--------------------------------------------------------------------------------
+DIFFERENCE BETWEEN ABSTRACT CLASS AND INTERFACES
+
+FEATURE                                     	ABSTRACT CLASSES                                  	INTERFACES
+Method Type                 -Can have abstract, concrete, static methods.	            -Decalred to abstarct and public by default,but
+                                                                                            can have static and private methods 
+Constructors	            -YES	                                                    -NO
+Instance Variables	        -YES                        	                            -NO
+Access Modifiers	        -Methods can be public, protected, private, or default.	    -Methods are public by default
+Inheritance	                -nO multiple inheritance (extends only one class).	        -Supports multiple inheritance (implements multiple interfaces).
+Instantiation	            -Cannot be instantiated (except through anonymous classes   -Cannot be instantiated .
+                                 or subclasses).	
+
+
+-----------------------------------------------------------------------------------
+HOW DO INTERFACES SUPPORT MULTIPLE INHERITANCE?
+
+Problem with Multiple Inheritance using classes
+
+-Imagine a class C has 2 super classes, A and B, and both have a variable "n".If an object of type C is created
+                    and "n" is accessed then....
+
+                                Class A      Class B
+                                 show();      show();
+                                   \           /
+                                    \         /
+                                      Class C
+                                      {
+                                        C obj=new C();
+                                        obj.show();
+                                      }
+                                    
+             ...What method will be called? A's show or B's show?
+                We dont know
+                -> This is called ambiguity or the Diamond Problem
+                ->Java avoids direct multiple inheritance with classes to prevent ambiguity
+                    class B{}
+                    class C{}
+                    class D extends B, C {}  // ❌ ERROR:
+
+
+What if we use interfaces?
+
+                            Interface A      Interface B
+                                 show();      show();
+                                   \           /
+                                    \         /
+                                      Class C
+                                      {
+                                        C obj=new C();
+                                        //------------------------>here both the show() are getting inherited and both are abstarct.Hence it doesnt 
+                                                                        matter which show() is called,because ultimately the body is written by
+                                                                        subclass.
+                                        obj.show();
+                                      }
+
+
+LIMITATION:-
+
+let us create diamond problem using variables.
+
+-Imagine a class C has 2 super classes, A and B, and both have a variable "n".If an object of type C is created
+                    and "n" is accessed then....
+
+                                Class A      Class B
+                                 {n=5}        {n=10}
+                                   \           /
+                                    \         /
+                                      Class C
+                                      {
+                                        C obj=new C();
+                                        System.out.print(obj.n);
+                                      }
+                                    
+             ...What will the answer be?-5 or 10?
+                We dont know
+                -> This is also called ambiguity or the Diamond Problem
+              
+
+What if we use interfaces?
+
+                             Interface A     Interface B
+                                 {n=5}        {n=10}
+                                   \           /
+                                    \         /
+                                      Class C
+                                      {
+                                        C obj=new C();
+                                        System.out.print(obj.n);
+                                      }
+
+                     ...What will the answer be?-5 or 10?
+                        We still dont know
+                        -> This ambiguity still persists in the interfaces.
+
+                        but where JAVA doesnt allow this
+
+                                        class A{}
+                                        class B{}
+                                        class C extends B, A {}  // ❌ ERROR:
+
+                            it allows this
+
+                                        Interface A{}
+                                        Interface B{}
+                                        class C extends B, A {
+
+                                        }
+
+                            not only this,it also allows
+
+                                        Interface A{
+                                            int n=5;
+                                        }
+                                        Interface B{
+                                            int n=6;
+                                        }
+                                        class C extends B, A {
+                                            C obj=new C();
+                                            System.out.print(obj.n);//❌ ERROR:due to ambiguity but java allows this
+                                            System.out.print(A.n);
+                                            System.out.print(B.n);
+                                        }
+

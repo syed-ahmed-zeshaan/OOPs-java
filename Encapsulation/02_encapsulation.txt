@@ -1,0 +1,54 @@
+x---------------------------------------------------ENCAPSULATION---------------------------------------------------------x
+
+Process of hiding data inside a class and restricting direct access to it is called as ENCAPSULATION
+
+Features:-
+
+       1. Hides internal data → Data (variables) are kept private and accessed only through public methods (getters and setters).
+       
+       2. Prevents direct modification → Only controlled access is allowed, ensuring data integrity.
+       
+       3. Improves maintainability & security → Protects against accidental modification of variables.
+
+-------------------------------
+DIFFERENCES BETWEEN ENCAPSULATION AND ABSTRACTION
+
+FEATURE	                                ABSTRACTION                                             	ENCAPSULATION
+Definition     →Hiding implementation details and showing only                          →Hiding data (variables) and allowing access only 
+                essential features	                                                    through controlled methods
+Purpose	       →Reduce complexity & increase reusability	                            →Protect data & ensure controlled modification
+implementation →Using abstract classes & interfaces	                                    →Using private variables and public getters/setters
+Access Control →Focuses on hiding implementation (methods)	                            →Focuses on hiding data (variables)
+Example	       →Hiding how a car engine works, just providing a start() method	        →Keeping balance private in a BankAccount class and
+                                                                                         modifying it through deposit() & withdraw() methods
+-------------------------------
+GETTER AND SETTER METHOD:=
+
+package Encapsulation;
+
+class Example{
+    private int n;
+
+    public void set(int n){
+        this.n=n;
+    }
+
+    public int get(){
+        return n;
+    }
+}
+
+public class GetterAndSetter{
+    public static void main(String[] args) {
+        Example a=new Example();
+
+        a.set(45);//setting value of n to 45.
+
+         int b=a.n;// ❌ ERROR:, as n is decalred to private and you are tring to access it in another class
+
+         int b=a.get();//Valid, because you are tring to access n through a method that exists in the same class as it
+
+         System.out.println(b);
+        
+    }
+}

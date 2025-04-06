@@ -13,7 +13,6 @@ When a member of a class is declared to static,it can be accessed before any obj
 ->non static members can access both static and non static members
 ->static members hence cant access "this" keyword
 ->static methods can be directly accessed by class name
-->ONLY NESTED CLASSES CAN BE STATIC
 ex:-
         public class Program8 {
             static int a=4;

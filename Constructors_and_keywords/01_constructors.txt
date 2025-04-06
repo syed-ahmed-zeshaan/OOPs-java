@@ -83,10 +83,9 @@ NON PARAMETERISED CONSTRUCTOR
 
                     Student s=new Student();
                     s.display();
-                    //the compiler itself initialises the attributes to the default values of its datatype using implicit constructor
                 }
   ------------
-NON PARAMETERISED CONSTRUCTOR
+PARAMETERISED CONSTRUCTOR
 
         ->constructor which is manually written as a method inside the class,WITH ARGUMENTS.
 

@@ -59,13 +59,13 @@ HOW TO ACHIEVE RUN TIME POLYMORPHISM
             literally it is
 
             
-                                Shape                 This is called the original Method
+                                Shape                 This is called the Overridden Method
                              [void area();]
                                     |
                                     |
                                     |
                                     v 
-                                 Circle                 This is called as the Overridden Method
+                                 Circle                 This is called as the Overriding Method
                             [void area();]
 
 
@@ -85,9 +85,9 @@ MECHANISM:-"DYNAMIC DISPATCH METHOD"
                     but it refers to the object of SubClass(circle)
 
             2.Java uses a data Struture called as  "Vitual Method Table" or VMT which stores a pointer to all the 
-            overridden methods in all the sublasses
+            Overriding methods in all the sublasses
             
-            3.When an Object of the subclass is created,JAVA generates a VMT for the Overridden method
+            3.When an Object of the subclass is created,JAVA generates a VMT for the Overriding method
 
             4.Now instead of looking at the type of referenceVariable,Java looks at the method in VMT of the actual object type
             and executes it
